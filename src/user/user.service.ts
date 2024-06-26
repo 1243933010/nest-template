@@ -25,5 +25,8 @@ export class UserService {
   }
   testFnc(body:TestPostData){
     console.log(body)
+    return {
+      
+    }
   }
 }

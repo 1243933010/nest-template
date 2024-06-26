@@ -9,11 +9,11 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule,{
     logger:['error','warn','log']
   });
-  // console.log(VersioningType.URI,process.env,'---')
+  // console.log(VersioningType,'---')
 
-  app.enableVersioning({
-    type:VersioningType.URI
-  })
+  // app.enableVersioning({
+  //   type:VersioningType.URI
+  // })
 
   await app.listen(3003);
 }

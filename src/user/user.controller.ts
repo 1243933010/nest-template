@@ -1,11 +1,21 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto,TestDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import {AuthPipe} from '../common/auth/auth.pipe'
 
-@Controller('user')
+@Controller({
+  path:'/api',
+})
+// @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Post('/test')   //测试post接口 /api/test
+  test(@Body(AuthPipe) body:TestDto) {
+    console.log(body)
+    return this.userService.testFnc(body);
+  }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-
+import {TestPostData} from './interface'
 @Injectable()
 export class UserService {
   create(createUserDto: CreateUserDto) {
@@ -22,5 +22,8 @@ export class UserService {
 
   remove(id: number) {
     return `This action removes a #${id} user`;
+  }
+  testFnc(body:TestPostData){
+    console.log(body)
   }
 }

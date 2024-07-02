@@ -16,10 +16,9 @@ export class UserController {
     private readonly authService: AuthService,
   ) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  // @UseGuards(AuthGuard('jwt'))
   @Post('/test')   //测试post接口 /api/test
   test(@Body(AuthPipe) body:TestDto) {
-    // console.log(body,UseGuards(AuthGuard('jwt')))
     return this.userService.testFnc(body);
   }
 

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {PrismaModule} from './prisma/prisma.module';
+import {PrismaInitModule} from './prismaInit/prismaInit.module';
 import { ConfigModule,ConfigService } from '@nestjs/config';  //@nestjs/config插件需要额外npm，使用它来给nest设定全局环境变量
 import { UserModule } from './user/user.module';
 import { AuthModule } from './common/auth/auth.module';
@@ -20,7 +20,7 @@ if(process.env.NODE_ENV=='dev'){
     ConfigModule.forRoot({
       envFilePath
     }),
-    PrismaModule,
+    PrismaInitModule,
     UserModule,
     AuthModule,
     UploadModule

@@ -25,3 +25,4 @@ model User {
   password String
   isShow   Int @default(1)
 }
+

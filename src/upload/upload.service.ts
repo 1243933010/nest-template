@@ -31,6 +31,8 @@ export class UploadService {
   
   async upload(file: { filename: string }) {
     // console.log(process.env.UPLOAD_URL, '---')
-    return { url: `${process.env.UPLOAD_URL}/images/${file.filename}` }
+    // return { url: `${process.env.UPLOAD_URL}/images/${file.filename}` }
+    return { url: `/images/${file.filename}` }
+
   }
 }
